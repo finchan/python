@@ -38,3 +38,20 @@ print(S.isalpha())
 line = 'aaa,bbb,ccccc,dd\n'
 print(line.rstrip())
 print(line.rstrip().split(','))
+
+print('%s, eggs, and %s' % ('spam', 'SPAM!'))
+print('{0}, eggs, and {1}'.format('spam','SPAM!'))
+print('{}, eggs, and {}'.format('spam', 'SPAM!'))
+
+print('{:,.2f}'.format(296999.2567))
+print('%.2f | %+05d' % (3.14159, -42))
+
+print(dir(S))
+print(help(S.replace))
+
+msg = """
+a
+b'''c""d'e
+f
+"""
+print(msg)
