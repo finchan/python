@@ -40,12 +40,11 @@ while count < len(cast):
 movies = ["The Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91,
           ["Graham Chapman", ["Michael Palin", "John Cleese",
                               "Terry Gilliam", "Eric Idle", "Terry Jones"]]]
-print(movies[4][1][3])
+
 print(movies)
+
 for each_item in movies:
     print(each_item)
-
-print('---------------------------')
 
 for each_item in movies:
     if isinstance(each_item, list):
@@ -54,38 +53,33 @@ for each_item in movies:
     else:
         print(each_item)
 
-names = ["Michael", "Terry"]
-print(isinstance(names, list))
-num_names = len(names)
-print(isinstance(num_names, list))
-
-# ----Check all BIFs - IDE - type
-# dir(__builtins__)
-# help(specified builtin) to check specified builtin
-print('---------------------------')
-movies = ["The Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91,
-          ["Graham Chapman", ["Michael Palin", "John Cleese",
-                              "Terry Gilliam", "Eric Idle", "Terry Jones"]]]
+print('_____________________________')
 for each_item in movies:
     if isinstance(each_item, list):
         for nested_item in each_item:
             if isinstance(nested_item, list):
                 for deeper_item in nested_item:
-                    print(deeper_item)
+                    if isinstance(deeper_item, list):
+                        for deepest_item in deeper_item:
+                            print(deepest_item)
+                    else:
+                        print(deeper_item)
             else:
                 print(nested_item)
     else:
         print(each_item)
 
-print('###############')
+movies = ["The Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91,
+          ["Graham Chapman", ["Michael Palin", "John Cleese",
+                              "Terry Gilliam", "Eric Idle", "Terry Jones"]]]
 
 
 def print_lol(a_list):
-    for _each_item in a_list:
-        if isinstance(_each_item, list):
-            print_lol(_each_item)
+    for each_item in a_list:
+        if isinstance(each_item, list):
+            print_lol(each_item)
         else:
-            print(_each_item)
+            print(each_item)
 
 
 print_lol(movies)
