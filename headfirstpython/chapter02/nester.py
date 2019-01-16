@@ -1,3 +1,4 @@
+import sys
 """This is the "nester.py" module and it provides one function called
     print_lol()which prints lists that may or may not include nested lists."""
 
@@ -32,3 +33,13 @@ def print_lol3(the_list, indent=False, level=0):
                 for tab_stop in range(level):
                     print("\t", end='')
             print(each_item)
+
+def print_lol4(the_list, indent=False, level=0, fn=sys.stdout):
+    for each_item in the_list:
+        if isinstance(each_item, list):
+            print_lol3(each_item, indent, level + 1, fn)
+        else:
+            if indent:
+                for tab_stop in range(level):
+                    print("\t", end='', file=fn)
+            print(each_item, file=fn)
