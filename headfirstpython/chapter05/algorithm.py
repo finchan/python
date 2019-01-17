@@ -6,9 +6,10 @@ def sanitize(time_string):
     else:
         return time_string
     (mins, secs) = time_string.split(splitter)
-    return mins+'.' + secs
+    return mins + '.' + secs
 
-def got_coach_data(filename) :
+
+def got_coach_data(filename):
     try:
         with open(filename) as f:
             data = f.readline()
@@ -17,6 +18,7 @@ def got_coach_data(filename) :
         print(str(err))
         # python uses None as null
         return None
+
 
 james = got_coach_data('james.txt')
 julie = got_coach_data('julie.txt')
@@ -45,7 +47,6 @@ for t in clean_sarah:
     if t not in unique_sarah:
         unique_sarah.append(t)
 
-
 print(clean_james)
 print(clean_julie)
 print(clean_mickey)
@@ -66,22 +67,22 @@ print(sorted(set(clean_julie))[0:3])
 print(sorted(set(clean_mickey))[0:3])
 print(sorted(set(clean_sarah))[0:3])
 
-data = [6,3,1,2,4,5]
+data = [6, 3, 1, 2, 4, 5]
 # in-place sorting
 data.sort()
 print(data)
-data = [6,3,1,2,4,5]
+data = [6, 3, 1, 2, 4, 5]
 # copied sorting
 data2 = sorted(data)
 print(data2)
 print(data)
 
 mins = [1, 2, 3]
-secs = [60*m for m in mins]
+secs = [60 * m for m in mins]
 print(secs)
 
 meters = [1, 10, 3]
-feet = [m*3.281 for m in meters]
+feet = [m * 3.281 for m in meters]
 print(feet)
 
 lower = ["I", "don't", "like", "spam"]
@@ -91,4 +92,3 @@ print(upper)
 dirty = ["2-22", "2:22", "2.22"]
 clean = [float((sanitize(t))) for t in dirty]
 print(clean)
-
