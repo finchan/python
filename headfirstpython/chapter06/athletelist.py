@@ -17,17 +17,3 @@ class AthleteList(list):
 
     def top3(self):
         return sorted(set([self.sanitize(t) for t in self]))[0:3]
-
-    def getCoachData(self, file_name):
-        try:
-            with open(file_name) as f:
-                data = f.readline()
-                data_list = data.split(',')
-                data_list = [t.strip() for t in data_list]
-                self.name = data_list.pop(0)
-                self.dob = data_list.pop(0)
-                self.extend(data_list)
-                return self
-        except IOError as ioe:
-            print(str(ioe))
-            return None
