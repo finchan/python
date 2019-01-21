@@ -23,7 +23,7 @@ def put_to_store(files_list):
             pickle.dump(all_athletes, athf)
     except IOError as ioerr:
         print('File error (put_and_store): ' + str(ioerr))
-    return(all_athletes)
+    return all_athletes
 
 def get_from_store():
     all_athletes = {}
