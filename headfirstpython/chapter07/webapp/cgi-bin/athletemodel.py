@@ -8,7 +8,7 @@ def get_coach_data(filename):
         with open(filename) as f:
             data = f.readline()
         templ = data.strip().split(',')
-        return(AthleteList(templ.pop(0), templ.pop(0), templ))
+        return AthleteList(templ.pop(0), templ.pop(0), templ)
     except IOError as ioerr:
         print('File error (get_coach_data): ' + str(ioerr))
         return(None)
@@ -33,3 +33,8 @@ def get_from_store():
     except IOError as ioerr:
         print('File error (get_from_store): ' + str(ioerr))
     return(all_athletes)
+
+def get_names_from_store():
+    athletes = get_from_store()
+    response = [athletes[each_ath].name for each_ath in athletes]
+    return response
