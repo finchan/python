@@ -15,3 +15,9 @@ print(column_heading)
 
 prediction = [k for k in dataset['20k'].keys() if dataset['20k'][k] == column_heading]
 print(prediction)
+
+distance_run = input("Enter the distance attempted:")
+recorded_time = input("Enter the recording time:")
+predicted_distance = input("Enter the distance you want a prediction for:")
+
+print(dataset[distance_run][recorded_time])
