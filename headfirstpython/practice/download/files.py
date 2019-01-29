@@ -30,7 +30,7 @@ def do_load_media(url, path):
         print(e)
 
 
-def do_retrieve_all_files(file_name, save_location):
+def do_retrieve_all_files(file_name, save_location, prefix):
     with open(file_name) as file:
         str = file.read().strip()
     resource = json.loads(str)
@@ -41,4 +41,12 @@ def do_retrieve_all_files(file_name, save_location):
         target = tiktok["video"]["play_addr"]["url_list"][0]
         media_type = tiktok["media_type"]
         if media_type == 4:
-            do_load_media(target, save_location+target_name+".mp4")
+            do_load_media(target, save_location+prefix+"___"+target_name+".mp4")
+
+
+def getVidsList (file_name):
+    with open(file_name) as file:
+        str = file.read().strip()
+    resource = json.loads(str)
+    aweme_list = resource["aweme_list"]
+    return aweme_list
