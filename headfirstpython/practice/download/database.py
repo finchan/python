@@ -2,7 +2,7 @@ import sqlite3
 from headfirstpython.practice.download.files import *
 
 
-def insert_db_download(db_connection, uid, uname, filename, save_location):
+def insert_db_download_vids(db_connection, uid, uname, filename, save_location):
     connection = sqlite3.connect(db_connection)
     cursor = connection.cursor()
     result = cursor.execute("""SELECT * FROM user WHERE userid=?""", [uid])
