@@ -12,7 +12,7 @@ def do_load_media(url, path):
             # 若文件已经存在，则断点续传，设置接收来需接收数据的位置
             if os.path.exists(path):
                 headers['Range'] = 'bytes=%d-' % os.path.getsize(path)
-            res = requests.get(url, stream=True, headers=headers)
+            res = requests.get(url, stream=True, headers=headers, verify=False)
 
             content_length = int(res.headers['content-length'])
             # 若当前报文长度小于前次报文长度，或者已接收文件等于当前报文长度，则可以认为视频接收完成
